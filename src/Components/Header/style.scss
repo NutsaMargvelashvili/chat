@@ -1,0 +1,16 @@
+.header {
+  background-color: var(--color-primary) !important;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 60px;
+
+  .navigation {
+    .list-items {
+      display: flex;
+      gap: 20px;
+      list-style-type: none;
+    }
+  }
+}
