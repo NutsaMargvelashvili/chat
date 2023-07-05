@@ -6,6 +6,7 @@ import Chat from "./chat";
 import { Helmet } from 'react-helmet';
 
 
+const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com")
 
 function App() {
     const [username, setUsername] = useState('')
@@ -51,7 +52,7 @@ function App() {
 
       </header>
         </div>) :
-            <div></div>
+            <div>g</div>
             // (<Chat socket={''} room={room} username={username}/>)
         }
         </Helmet>
