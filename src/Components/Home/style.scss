@@ -1,0 +1,18 @@
+.home {
+  .content {
+    width: 55%;
+
+    h1 {
+      font-family: "Press Start 2P", cursive;
+
+      span {
+        color: var(--color-primary);
+      }
+    }
+
+    h2 {
+      font-family: "Exo Space", sans-serif;
+      text-transform: lowercase;
+    }
+  }
+}

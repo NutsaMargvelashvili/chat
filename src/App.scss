@@ -1,6 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/exo-space');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 :root {
   --color-primary: #10e956;
   --color-secondary: #060810;
+  --color-white: #FFF;
 }
 
 * {
@@ -10,6 +14,9 @@
 .App {
   text-align: center;
   background-color: var(--color-secondary);
+  font-family: Cyborg, sans-serif;
+  height: 100vh;
+  color: var(--color-white);
 }
 
 .App-logo {
@@ -49,12 +56,6 @@
 }
 
 /*                   */
-
-.App {
-  height: 100vh;
-  color: #212121;
-  font-family: "Open Sans", sans-serif;
-}
 
 body {
   margin: 0%;
