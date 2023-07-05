@@ -1,5 +1,11 @@
+:root {
+  --color-primary: #10e956;
+  --color-secondary: #060810;
+}
+
 .App {
   text-align: center;
+  background-color: var(--color-secondary);
 }
 
 .App-logo {
@@ -41,7 +47,6 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background: #fff;
   color: #212121;
   font-family: "Open Sans", sans-serif;
   display: grid;
@@ -67,7 +72,7 @@ body {
   width: 210px;
   height: 40px;
   margin: 7px;
-  border: 2px solid #43a047;
+  border: 2px solid var(--color-primary);
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
@@ -81,13 +86,13 @@ body {
   border-radius: 5px;
   padding: 5px;
   font-size: 16px;
-  background: #43a047;
+  background: var(--color-primary);
   color: #fff;
   cursor: pointer;
 }
 
 .joinChatContainer button:hover {
-  background: #2e7d32;
+  background: var(--color-primary);
 }
 
 .chat-window {
@@ -141,7 +146,7 @@ body {
   height: auto;
   min-height: 40px;
   max-width: 120px;
-  background-color: #43a047;
+  background-color: var(--color-primary);
   border-radius: 5px;
   color: white;
   display: flex;
@@ -224,7 +229,7 @@ body {
 }
 
 .chat-window .chat-footer button:hover {
-  color: #43a047;
+  color: var(--color-primary);
 }
 .hide {
   opacity: 0 !important;

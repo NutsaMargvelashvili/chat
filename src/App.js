@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import io from 'socket.io-client'
 import {useEffect, useState} from "react";
 import Chat from "./chat";
+import Header from "./Components/Header";
 
 
 const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com")
@@ -35,7 +35,7 @@ function App() {
     }
   return (
     <div className="App">
-
+         <Header/>
 
         {!showChat ? (
         <div className="joinChatContainer">
