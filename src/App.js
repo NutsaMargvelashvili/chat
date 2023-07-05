@@ -3,7 +3,6 @@ import './App.css';
 import io from 'socket.io-client'
 import {useEffect, useState} from "react";
 import Chat from "./chat";
-import { Helmet } from 'react-helmet';
 
 
 const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com")
@@ -36,9 +35,6 @@ function App() {
     }
   return (
     <div className="App">
-        fdfd
-        <Helmet>
-            <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
 
         {!showChat ? (
@@ -55,7 +51,6 @@ function App() {
         </div>) :
             (<Chat socket={socket} room={room} username={username}/>)
         }
-        </Helmet>
     </div>
   );
 }
