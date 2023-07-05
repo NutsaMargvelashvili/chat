@@ -1,15 +1,18 @@
 import "./App.scss";
-import io from "socket.io-client";
+import React from "react";
+import { io, Socket } from "socket.io-client";
 import { useEffect, useState } from "react";
 import Chat from "./chat";
 import Header from "./Components/Header";
 
-const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com");
+const socket: Socket = io("https://chat-nutsamargvelashvili.onrender.com");
+
+// const socket = io.connect("");
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [room, setRoom] = useState("");
-  const [showChat, setShowChat] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [room, setRoom] = useState<string>("");
+  const [showChat, setShowChat] = useState<boolean>(false);
 
   useEffect(() => {
     fetchData();
@@ -33,6 +36,7 @@ function App() {
       setShowChat(true);
     }
   };
+
   return (
     <div className="App">
       <Header />
@@ -41,7 +45,6 @@ function App() {
         <div className="joinChatContainer">
           <header className="chat-wrapper">
             <p>
-              {" "}
               <code>Hi, I'm Nutsa Margvelashvili</code>
             </p>
             <h3>Join A Chat</h3>
