@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import io from 'socket.io-client'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Chat from "./chat";
 import { Helmet } from 'react-helmet';
 
