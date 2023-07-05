@@ -20,7 +20,7 @@ function App() {
     const fetchData = async () => {
         try {
             const response = await fetch('https://chat-nutsamargvelashvili.onrender.com/hello');
-            const jsonData = await response;
+            const jsonData = await response.text();
             console.log(jsonData);
         } catch (error) {
             console.error('Error fetching data:', error);
