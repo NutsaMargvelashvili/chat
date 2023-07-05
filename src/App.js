@@ -29,10 +29,10 @@ function App() {
     };
 
     const joinRoom = () => {
-       // if(username !== '' && room !== ''){
-       //     socket.emit("join_room", room)
-       //     setShowChat(true)
-       // }
+       if(username !== '' && room !== ''){
+           // socket.emit("join_room", room)
+           setShowChat(true)
+       }
     }
   return (
     <div className="App">
@@ -52,7 +52,7 @@ function App() {
 
       </header>
         </div>) :
-            (<Chat socket={socket} room={room} username={username}/>)
+            (<Chat socket={''} room={room} username={username}/>)
         }
         </Helmet>
     </div>

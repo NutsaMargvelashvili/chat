@@ -14,23 +14,23 @@ function Chat({socket, username, room}) {
                 time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()
 
             }
-            await socket.emit("send_message", messageDate)
-            setMessageList((prevState)=>[...prevState, messageDate])
+            // await socket.emit("send_message", messageDate)
+            // setMessageList((prevState)=>[...prevState, messageDate])
             setCurrentMessage('')
         }
     }
 // deploy
-    useEffect(() => {
-        const handleReceiveMessage = (data) => {
-            setMessageList((prevState)=>[...prevState, data])
-        };
-
-        socket.on("receive_message", handleReceiveMessage);
-
-        return () => {
-            socket.off("receive_message", handleReceiveMessage);
-        };
-    }, [socket]);
+//     useEffect(() => {
+//         const handleReceiveMessage = (data) => {
+//             setMessageList((prevState)=>[...prevState, data])
+//         };
+//
+//         socket.on("receive_message", handleReceiveMessage);
+//
+//         return () => {
+//             socket.off("receive_message", handleReceiveMessage);
+//         };
+//     }, [socket]);
     return (
         <div className={"chat-window"}>
            <div className="chat-header">
