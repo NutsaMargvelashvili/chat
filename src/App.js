@@ -13,6 +13,21 @@ function App() {
     const [room, setRoom] = useState('')
     const [showChat, setShowChat] = useState(false)
 
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch('https://chat-nutsamargvelashvili.onrender.com/hello');
+            const jsonData = await response.json();
+            console.log(jsonData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
     const joinRoom = () => {
        if(username !== '' && room !== ''){
            socket.emit("join_room", room)
