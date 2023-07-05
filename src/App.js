@@ -4,7 +4,7 @@ import io from 'socket.io-client'
 import {useState} from "react";
 import Chat from "./chat";
 
-const socket = io.connect("http://nutsamargvelashvili.github.io/chat")
+const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com")
 // https://nutsamargvelashvili.github.io/public/index.html
 function App() {
     const [username, setUsername] = useState('')
