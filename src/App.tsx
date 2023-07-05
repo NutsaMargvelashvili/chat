@@ -40,9 +40,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-
-      {!showChat ? (
-        <div className="joinChatContainer">
+      <div className="joinChatContainer">
+        {!showChat ? (
           <header className="chat-wrapper">
             <p>
               <code>Hi, I'm Nutsa Margvelashvili</code>
@@ -60,10 +59,10 @@ function App() {
             />
             <button onClick={joinRoom}>Join A Room</button>
           </header>
-        </div>
-      ) : (
-        <Chat socket={socket} room={room} username={username} />
-      )}
+        ) : (
+          <Chat socket={socket} room={room} username={username} />
+        )}
+      </div>
     </div>
   );
 }
