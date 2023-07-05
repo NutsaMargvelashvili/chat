@@ -6,7 +6,7 @@ import Chat from "./chat";
 import { Helmet } from 'react-helmet';
 
 
-const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com")
+// const socket = io.connect("https://chat-nutsamargvelashvili.onrender.com")
 
 function App() {
     const [username, setUsername] = useState('')
@@ -29,10 +29,10 @@ function App() {
     };
 
     const joinRoom = () => {
-       if(username !== '' && room !== ''){
-           socket.emit("join_room", room)
-           setShowChat(true)
-       }
+       // if(username !== '' && room !== ''){
+       //     socket.emit("join_room", room)
+       //     setShowChat(true)
+       // }
     }
   return (
     <div className="App">
