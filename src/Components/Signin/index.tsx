@@ -4,12 +4,20 @@ import "./style.scss";
 interface ISignup {
   socket: any;
   setShowChat: any;
+  setRoom: any;
+  setUsername: any;
+  room: string;
+  username: string;
 }
 
-const Signin: React.FC<ISignup> = ({ socket, setShowChat }) => {
-  const [username, setUsername] = useState<string>("");
-  const [room, setRoom] = useState<string>("");
-
+const Signin: React.FC<ISignup> = ({
+  socket,
+  setShowChat,
+  setUsername,
+  setRoom,
+  room,
+  username,
+}) => {
   useEffect(() => {
     fetchData();
   }, []);

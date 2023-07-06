@@ -142,7 +142,14 @@ function App() {
         <Home></Home>
         <div className={"joinChatContainer"}>
           {!showChat ? (
-            <Signin socket={socket} setShowChat={setShowChat}></Signin>
+            <Signin
+              socket={socket}
+              setShowChat={setShowChat}
+              setRoom={setRoom}
+              setUsername={setUsername}
+              room={room}
+              username={username}
+            ></Signin>
           ) : (
             // <div className="chat-wrapper">
             //   <p>
