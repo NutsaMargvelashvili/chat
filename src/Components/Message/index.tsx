@@ -24,7 +24,7 @@ const Message: React.FC<IMessage> = ({
   setReactOpen,
 }) => {
   const [react, setReact] = useState<any>();
-  const [el, setEl] = useState();
+  const [el, setEl] = useState("");
   const openReact = function (e: any) {
     setEl(e);
     setReactOpen(true);
@@ -33,6 +33,7 @@ const Message: React.FC<IMessage> = ({
   const closeReact = function (e: any) {
     if (!reactOpen) return;
     setReactOpen(false);
+    setEl("");
     e.target.closest(".message-wrapper").style.zIndex = 10;
   };
 
@@ -57,7 +58,7 @@ const Message: React.FC<IMessage> = ({
         style={{ zIndex: 10 }}
         className={"message-wrapper"}
       >
-        {reactOpen && (
+        {reactOpen && el && (
           <div className="react-list">
             <div
               className={"react-list-item"}
