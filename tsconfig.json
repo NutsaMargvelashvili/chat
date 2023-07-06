@@ -113,5 +113,8 @@
     /* Skip type checking all .d.ts files. */
     "jsx": "react",
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": [
+    "src"
+  ]
 }
