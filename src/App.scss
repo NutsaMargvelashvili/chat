@@ -132,16 +132,6 @@ body {
 }
 
 .chat-window .chat-body .message .message-content {
-  clip-path: polygon(
-                  8px 0,
-                  calc(100% - 8px) 0,
-                  100% 8px,
-                  100% calc(100% - 8px),
-                  100% 100%,
-                  8px 100%,
-                  0 calc(100% - 8px),
-                  0 8px
-  );
   display: flex;
   align-items: center;
   padding: 8px;
@@ -164,6 +154,28 @@ body {
   width: auto;
   height: auto;
   background-color: var(--color-primary);
+}
+
+#you {
+  justify-content: flex-end;
+  color: var(--color-secondary);
+
+  .message-polygon {
+    clip-path: polygon(
+                    8px 0,
+                    calc(100% - 8px) 0,
+                    100% 8px,
+                    100% calc(100% - 8px),
+                    100% 100%,
+                    8px 100%,
+                    0 calc(100% - 8px),
+                    0 8px
+    );
+  }
+}
+
+#you .message-content {
+  background-color: var(--color-primary);
   clip-path: polygon(
                   8px 0,
                   calc(100% - 8px) 0,
@@ -176,15 +188,6 @@ body {
   );
 }
 
-#you {
-  justify-content: flex-end;
-  color: var(--color-secondary);
-}
-
-#you .message-content {
-  background-color: var(--color-primary);
-}
-
 #you .message-meta {
   justify-content: flex-end;
   margin-left: 5px;
@@ -192,6 +195,19 @@ body {
 
 #other {
   justify-content: flex-start;
+
+  .message-polygon {
+    clip-path: polygon(
+                    8px 0,
+                    calc(100% - 8px) 0,
+                    100% 8px,
+                    100% calc(100% - 8px),
+                    calc(100% - 8px) 100%,
+                    8px 100%,
+                    0 100%,
+                    0 8px
+    );
+  }
 }
 
 #other .message-content {
@@ -199,6 +215,16 @@ body {
   background-color: var(--color-secondary);
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
+  clip-path: polygon(
+                  8px 0,
+                  calc(100% - 8px) 0,
+                  100% 8px,
+                  100% calc(100% - 8px),
+                  calc(100% - 8px) 100%,
+                  8px 100%,
+                  0 100%,
+                  0 8px
+  );
 }
 
 #other .message-meta {
