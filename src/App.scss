@@ -200,6 +200,10 @@ body {
                   0 calc(100% - 8px),
                   0 8px
   );
+
+  .message-react {
+    left: -11px;
+  }
 }
 
 #other {
@@ -216,6 +220,10 @@ body {
                     0 100%,
                     0 8px
     );
+  }
+
+  .message-react {
+    left: 11px;
   }
 }
 
@@ -253,7 +261,6 @@ body {
 
   .message-react {
     position: relative;
-    left: -11px;
     top: -5px;
     cursor: pointer;
   }
