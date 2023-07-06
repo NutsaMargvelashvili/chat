@@ -112,7 +112,16 @@ body {
   border: 1px solid #263238;
   position: relative;
   background-color: var(--color-secondary--lighter);
+
+  .blur {
+    position: absolute;
+    backdrop-filter: blur(5px);
+    height: 100%;
+    width: 100%;
+    z-index: 11;
+  }
 }
+
 
 .chat-window .chat-body .message-container {
   width: 100%;
@@ -129,6 +138,11 @@ body {
   height: auto;
   padding: 10px;
   display: flex;
+  position: relative;
+
+  .message-wrapper {
+    z-index: 10;
+  }
 }
 
 .chat-window .chat-body .message .message-content {
@@ -241,6 +255,15 @@ body {
     position: relative;
     left: -11px;
     top: -5px;
+    cursor: pointer;
+  }
+}
+
+.react-list {
+  display: flex;
+
+  .react-list-item {
+    cursor: pointer;
   }
 }
 

@@ -20,6 +20,14 @@ interface IChat {
 const Chat: React.FC<IChat> = ({ socket, username, room }) => {
   const [currentMessage, setCurrentMessage] = useState<string>("");
   const [messageList, setMessageList] = useState<IMessage[]>([]);
+  const [reactOpen, setReactOpen] = useState(false);
+
+  const closeReact = () => {
+    setReactOpen(false);
+  };
+  useEffect(() => {
+    console.log(reactOpen, "changed");
+  }, [reactOpen]);
 
   const sendMessage = async (): Promise<void> => {
     if (currentMessage !== "") {
@@ -60,6 +68,7 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
         <p>Live Chat</p>
       </div>
       <div className="chat-body">
+        {reactOpen && <div onClick={closeReact} className="blur"></div>}
         <ScrollToBottom className="message-container">
           {messageList.map((messageContent, index) => (
             <Message
@@ -68,6 +77,8 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
               author={messageContent.author}
               message={messageContent.message}
               time={messageContent.time}
+              reactOpen={reactOpen}
+              setReactOpen={setReactOpen}
             ></Message>
           ))}
         </ScrollToBottom>

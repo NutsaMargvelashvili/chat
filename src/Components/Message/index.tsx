@@ -10,6 +10,8 @@ interface IMessage {
   author: string;
   message: string;
   time: string;
+  reactOpen: boolean;
+  setReactOpen: any;
 }
 
 const Message: React.FC<IMessage> = ({
@@ -18,11 +20,30 @@ const Message: React.FC<IMessage> = ({
   author,
   message,
   time,
+  reactOpen,
+  setReactOpen,
 }) => {
   const [react, setReact] = useState<any>();
+  const [el, setEl] = useState();
+  const openReact = function (e: any) {
+    setEl(e);
+    setReactOpen(true);
+    e.target.closest(".message-wrapper").style.zIndex = 12;
+  };
+  const closeReact = function (e: any) {
+    if (!reactOpen) return;
+    setReactOpen(false);
+    e.target.closest(".message-wrapper").style.zIndex = 10;
+  };
 
-  const handleReact = () => {
+  const handleReact = (e: any) => {
+    e.stopPropagation();
     setReact(<FontAwesomeIcon style={{ color: "#6D61EB" }} icon={faBug} />);
+  };
+
+  const chooseReact = (emoji: string) => {
+    setReact(emoji);
+    closeReact(el);
   };
 
   return (
@@ -31,7 +52,33 @@ const Message: React.FC<IMessage> = ({
       id={username === author ? "you" : "other"}
       key={index}
     >
-      <div>
+      <div
+        onClick={closeReact}
+        style={{ zIndex: 10 }}
+        className={"message-wrapper"}
+      >
+        {reactOpen && (
+          <div className="react-list">
+            <div
+              className={"react-list-item"}
+              onClick={() => chooseReact("🥳")}
+            >
+              🥳
+            </div>
+            <div
+              className={"react-list-item"}
+              onClick={() => chooseReact("👾")}
+            >
+              👾
+            </div>
+            <div
+              className={"react-list-item"}
+              onClick={() => chooseReact("🤡")}
+            >
+              🤡
+            </div>
+          </div>
+        )}
         <div className="message-meta">
           <p id="author">{username === author ? "You" : author}</p>
         </div>
@@ -41,7 +88,7 @@ const Message: React.FC<IMessage> = ({
           </div>
         </div>
         <div className="message-meta">
-          <div className={"message-react"}>
+          <div onClick={openReact} className={"message-react"}>
             {react ? (
               react
             ) : (
