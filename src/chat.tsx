@@ -70,8 +70,10 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
                 <div className="message-meta">
                   <p id="author">{messageContent.author}</p>
                 </div>
-                <div className="message-content">
-                  <p>{messageContent.message}</p>
+                <div className="message-polygon">
+                  <div className="message-content">
+                    <p>{messageContent.message}</p>
+                  </div>
                 </div>
                 <div className="message-meta">
                   <p id="time">{messageContent.time}</p>
