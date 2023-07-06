@@ -25,6 +25,10 @@
 
 .main {
   position: relative;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 60px);
 }
 
 .App-logo {
