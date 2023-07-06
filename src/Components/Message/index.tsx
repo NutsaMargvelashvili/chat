@@ -3,6 +3,11 @@ import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { faBug } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faFire } from "@fortawesome/free-solid-svg-icons";
+import { faPoop } from "@fortawesome/free-solid-svg-icons";
+import { faMasksTheater } from "@fortawesome/free-solid-svg-icons";
+import { faSmoking } from "@fortawesome/free-solid-svg-icons";
 
 interface IMessage {
   username: string;
@@ -42,7 +47,7 @@ const Message: React.FC<IMessage> = ({
     setReact(<FontAwesomeIcon style={{ color: "#6D61EB" }} icon={faBug} />);
   };
 
-  const chooseReact = (emoji: string) => {
+  const chooseReact = (emoji: any) => {
     setReact(emoji);
     closeReact(el);
   };
@@ -62,21 +67,65 @@ const Message: React.FC<IMessage> = ({
           <div className="react-list">
             <div
               className={"react-list-item"}
-              onClick={() => chooseReact("🥳")}
+              onClick={() =>
+                chooseReact(
+                  <FontAwesomeIcon
+                    style={{ color: "#E1186B" }}
+                    icon={faHeart}
+                  />
+                )
+              }
             >
-              🥳
+              <FontAwesomeIcon style={{ color: "#E1186B" }} icon={faHeart} />
             </div>
             <div
               className={"react-list-item"}
-              onClick={() => chooseReact("👾")}
+              onClick={() =>
+                chooseReact(
+                  <FontAwesomeIcon style={{ color: "#F57431" }} icon={faFire} />
+                )
+              }
             >
-              👾
+              <FontAwesomeIcon style={{ color: "#F57431" }} icon={faFire} />
             </div>
             <div
               className={"react-list-item"}
-              onClick={() => chooseReact("🤡")}
+              onClick={() =>
+                chooseReact(
+                  <FontAwesomeIcon
+                    style={{ color: "#F5E827" }}
+                    icon={faSmoking}
+                  />
+                )
+              }
             >
-              🤡
+              <FontAwesomeIcon style={{ color: "#F5E827" }} icon={faSmoking} />
+            </div>
+            <div
+              className={"react-list-item"}
+              onClick={() =>
+                chooseReact(
+                  <FontAwesomeIcon style={{ color: "#7D8F52" }} icon={faPoop} />
+                )
+              }
+            >
+              <FontAwesomeIcon style={{ color: "#7D8F52" }} icon={faPoop} />
+            </div>
+            <div
+              className={"react-list-item"}
+              onClick={() =>
+                chooseReact(
+                  <FontAwesomeIcon
+                    style={{ color: "#A260FA" }}
+                    icon={faMasksTheater}
+                  />
+                )
+              }
+            >
+              <FontAwesomeIcon
+                style={{ color: "#A260FA" }}
+                icon={faMasksTheater}
+              />
             </div>
           </div>
         )}
