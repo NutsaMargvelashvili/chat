@@ -3,7 +3,11 @@
 
 :root {
   --color-primary: #10e956;
-  --color-secondary: #060810;
+  --color-primary--lighter: #5cbd58;
+  --color-primary--darker: #142414;
+  --color-secondary: #121926;
+  --color-secondary--lighter: rgba(26, 35, 50, 0.64);
+  --color-secondary--darker: #1e1e1e;
   --color-white: #FFF;
 }
 
@@ -78,15 +82,15 @@ body {
   margin-bottom: 1rem;
 }
 
-.joinChatContainer input {
-  width: 210px;
-  height: 40px;
-  margin: 7px;
-  border: 2px solid var(--color-primary);
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 16px;
-}
+//.joinChatContainer input {
+//  width: 210px;
+//  height: 40px;
+//  margin: 7px;
+//  border: 2px solid var(--color-primary);
+//  border-radius: 5px;
+//  padding: 5px;
+//  font-size: 16px;
+//}
 
 .joinChatContainer button {
   width: 225px;
