@@ -122,7 +122,6 @@ body {
   }
 }
 
-
 .chat-window .chat-body .message-container {
   width: 100%;
   height: 100%;
@@ -186,6 +185,10 @@ body {
                     0 8px
     );
   }
+
+  .message-react {
+    left: -11px;
+  }
 }
 
 #you .message-content {
@@ -200,10 +203,6 @@ body {
                   0 calc(100% - 8px),
                   0 8px
   );
-
-  .message-react {
-    left: -11px;
-  }
 }
 
 #other {
