@@ -91,7 +91,7 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
             e.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>
+        <button className={"send-btn"} onClick={sendMessage}>
           <FontAwesomeIcon icon={faPaperPlane} fade />
         </button>
       </div>
