@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 interface IMessage {
   room: string;
@@ -24,9 +26,13 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
         room,
         author: username,
         message: currentMessage,
-        time: `${new Date(Date.now()).getHours()}:${new Date(
-          Date.now()
-        ).getMinutes()}`,
+        time: `${new Date(Date.now())
+          .getHours()
+          .toString()
+          .padStart(2, "0")}:${new Date(Date.now())
+          .getMinutes()
+          .toString()
+          .padStart(2, "0")}`,
       };
       await socket.emit("send_message", messageData);
       setMessageList((prevState) => [...prevState, messageData]);
@@ -46,6 +52,7 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
     };
   }, [socket]);
 
+  // @ts-ignore
   return (
     <div className="chat-window">
       <div className="chat-header">
@@ -60,12 +67,14 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
               key={index}
             >
               <div>
+                <div className="message-meta">
+                  <p id="author">{messageContent.author}</p>
+                </div>
                 <div className="message-content">
                   <p>{messageContent.message}</p>
                 </div>
                 <div className="message-meta">
                   <p id="time">{messageContent.time}</p>
-                  <p id="author">{messageContent.author}</p>
                 </div>
               </div>
             </div>
@@ -78,11 +87,13 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
           type="text"
           placeholder="Hey..."
           onChange={(e) => setCurrentMessage(e.target.value)}
-          onKeyPress={(e) => {
+          onKeyDown={(e) => {
             e.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={sendMessage}>
+          <FontAwesomeIcon icon={faPaperPlane} fade />
+        </button>
       </div>
     </div>
   );

@@ -72,6 +72,10 @@ const Signin: React.FC<ISignup> = ({
             placeholder={"Room ID..."}
             className="editor-field__input"
             onChange={(e) => setRoom(e.target.value)}
+            onKeyDown={(e) => {
+              console.log(e.key);
+              e.key === "Enter" && joinRoom();
+            }}
           />
         </div>
         <span className="editor-field__bottom"></span>
