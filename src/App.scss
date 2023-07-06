@@ -132,13 +132,22 @@ body {
 }
 
 .chat-window .chat-body .message .message-content {
+  clip-path: polygon(
+                  8px 0,
+                  calc(100% - 8px) 0,
+                  100% 8px,
+                  100% calc(100% - 8px),
+                  100% 100%,
+                  8px 100%,
+                  0 calc(100% - 8px),
+                  0 8px
+  );
   width: auto;
   height: auto;
   min-height: 40px;
   max-width: 200px;
   background-color: var(--color-primary);
-  border-radius: 5px;
-  color: white;
+  color: var(--color-secondary);
   display: flex;
   align-items: center;
   padding: 8px;
@@ -185,7 +194,7 @@ body {
 }
 
 .message-meta {
-  color: var(--color-white)
+  color: var(--color-primary)
 }
 
 .chat-window .chat-footer {

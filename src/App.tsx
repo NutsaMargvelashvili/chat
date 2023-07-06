@@ -151,23 +151,6 @@ function App() {
               username={username}
             ></Signin>
           ) : (
-            // <div className="chat-wrapper">
-            //   <p>
-            //     <code>Hi, I'm Nutsa Margvelashvili</code>
-            //   </p>
-            //   <h3>Join A Chat</h3>
-            //   <input
-            //     type="text"
-            //     placeholder={"Nuka..."}
-            //     onChange={(e) => setUsername(e.target.value)}
-            //   />
-            //   <input
-            //     type="text"
-            //     placeholder={"Room ID..."}
-            //     onChange={(e) => setRoom(e.target.value)}
-            //   />
-            //   <button onClick={joinRoom}>Join A Room</button>
-            // </div>
             <Chat socket={socket} room={room} username={username} />
           )}
         </div>
