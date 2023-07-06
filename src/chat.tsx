@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import Message from "./Components/Message";
 
 interface IMessage {
   room: string;
@@ -61,25 +62,13 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
       <div className="chat-body">
         <ScrollToBottom className="message-container">
           {messageList.map((messageContent, index) => (
-            <div
-              className="message"
-              id={username === messageContent.author ? "you" : "other"}
-              key={index}
-            >
-              <div>
-                <div className="message-meta">
-                  <p id="author">{messageContent.author}</p>
-                </div>
-                <div className="message-polygon">
-                  <div className="message-content">
-                    <p>{messageContent.message}</p>
-                  </div>
-                </div>
-                <div className="message-meta">
-                  <p id="time">{messageContent.time}</p>
-                </div>
-              </div>
-            </div>
+            <Message
+              username={username}
+              index={index}
+              author={messageContent.author}
+              message={messageContent.message}
+              time={messageContent.time}
+            ></Message>
           ))}
         </ScrollToBottom>
       </div>
