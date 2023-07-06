@@ -138,6 +138,7 @@ const Message: React.FC<IMessage> = ({
           </div>
         </div>
         <div className="message-meta">
+          {username !== author && <p id="time">{time}</p>}
           <div onClick={openReact} className={"message-react"}>
             {react ? (
               react
@@ -145,7 +146,7 @@ const Message: React.FC<IMessage> = ({
               <FontAwesomeIcon style={{ opacity: 0.5 }} icon={faCirclePlus} />
             )}
           </div>
-          <p id="time">{time}</p>
+          {username === author && <p id="time">{time}</p>}
         </div>
       </div>
     </div>
