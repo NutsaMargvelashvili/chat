@@ -22,9 +22,7 @@ const Message: React.FC<IMessage> = ({
   const [react, setReact] = useState<any>();
 
   const handleReact = () => {
-    setReact(
-      <FontAwesomeIcon style={{ backgroundColor: "red" }} icon={faBug} />
-    );
+    setReact(<FontAwesomeIcon style={{ color: "#6D61EB" }} icon={faBug} />);
   };
 
   return (
