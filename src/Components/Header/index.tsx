@@ -1,13 +1,18 @@
 import React from "react";
 import "./style.scss";
+import { NavLink } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
     <div className="header">
       <nav className="navigation">
         <ul className="list-items">
-          <li className="list-item">CV</li>
-          <li className="list-item">Chat</li>
+          <NavLink className="list-item" to={"cv"}>
+            CV
+          </NavLink>
+          <NavLink className="list-item" to={"chat"}>
+            Chat
+          </NavLink>
           <li className="list-item">Home</li>
         </ul>
       </nav>
