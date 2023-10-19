@@ -60,5 +60,9 @@
     "fontawesome-svg-core": {
       "license": "free"
     }
+  },
+  "publishConfig": {
+    "cache": "cache/.npm",
+    "registry": "https://mydomain/myrepo"
   }
 }
