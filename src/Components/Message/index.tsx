@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +17,11 @@ interface IMessage {
   time: string;
   reactOpen: boolean;
   setReactOpen: any;
+  currentEmoji: string;
+  setCurrentEmoji: any;
+  setSelectedMessageId: any;
+  messageId: string;
+  emoji: any;
 }
 
 const Message: React.FC<IMessage> = ({
@@ -27,8 +32,13 @@ const Message: React.FC<IMessage> = ({
   time,
   reactOpen,
   setReactOpen,
+  currentEmoji,
+  setCurrentEmoji,
+  setSelectedMessageId,
+  messageId,
+  emoji,
 }) => {
-  const [react, setReact] = useState<any>();
+  // const [react, setReact] = useState<any>();
   const [el, setEl] = useState("");
   const openReact = function (e: any) {
     setEl(e);
@@ -44,11 +54,14 @@ const Message: React.FC<IMessage> = ({
 
   const handleReact = (e: any) => {
     e.stopPropagation();
-    setReact(<FontAwesomeIcon style={{ color: "#6D61EB" }} icon={faBug} />);
+    setCurrentEmoji(
+      <FontAwesomeIcon style={{ color: "#6D61EB" }} icon={faBug} />
+    );
   };
 
   const chooseReact = (emoji: any) => {
-    setReact(emoji);
+    setSelectedMessageId(messageId);
+    setCurrentEmoji(emoji);
     closeReact(el);
   };
 
@@ -140,8 +153,11 @@ const Message: React.FC<IMessage> = ({
         <div className="message-meta">
           {username !== author && <p id="time">{time}</p>}
           <div onClick={openReact} className={"message-react"}>
-            {react ? (
-              react
+            {emoji ? (
+              <FontAwesomeIcon
+                style={emoji.props.style}
+                icon={emoji.props.icon}
+              />
             ) : (
               <FontAwesomeIcon style={{ opacity: 0.5 }} icon={faCirclePlus} />
             )}

@@ -5,10 +5,18 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import Message from "./Components/Message";
 
 interface IMessage {
+  messageId: string;
+  emoji: string;
   room: string;
   author: string;
   message: string;
   time: string;
+}
+
+interface IReact {
+  emoji: string;
+  messageId: string;
+  room: string;
 }
 
 interface IChat {
@@ -18,20 +26,47 @@ interface IChat {
 }
 
 const Chat: React.FC<IChat> = ({ socket, username, room }) => {
-  const [currentMessage, setCurrentMessage] = useState<string>("");
+  const [currentMessage, setCurrentMessage] = useState<any>("");
+  const [currentEmoji, setCurrentEmoji] = useState<string>("");
+  const [selectedMessageId, setSelectedMessageId] = useState<string>("");
   const [messageList, setMessageList] = useState<IMessage[]>([]);
   const [reactOpen, setReactOpen] = useState(false);
 
   const closeReact = () => {
     setReactOpen(false);
   };
-  useEffect(() => {
-    console.log(reactOpen, "changed");
-  }, [reactOpen]);
+
+  const setEmojiToMessage = (data: IReact) => {
+    setMessageList((prevState) => {
+      const updatedMessages = prevState.map((message) => {
+        if (message.messageId === data.messageId) {
+          return { ...message, emoji: data.emoji };
+        } else {
+          return message;
+        }
+      });
+      return updatedMessages;
+    });
+  };
+  const reactMessage = async (): Promise<void> => {
+    if (currentEmoji !== "") {
+      const reactData: IReact = {
+        emoji: currentEmoji,
+        messageId: selectedMessageId,
+        room,
+      };
+      await socket.emit("react_message", reactData);
+      setEmojiToMessage(reactData);
+      setCurrentEmoji("");
+      setSelectedMessageId("");
+    }
+  };
 
   const sendMessage = async (): Promise<void> => {
     if (currentMessage !== "") {
       const messageData: IMessage = {
+        emoji: "",
+        messageId: Date.now().toString(), // TODO: change
         room,
         author: username,
         message: currentMessage,
@@ -54,14 +89,22 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
       setMessageList((prevState) => [...prevState, data]);
     };
 
+    const handleReactedMessage = (data: IReact): void => {
+      setEmojiToMessage(data);
+    };
+    socket.on("reacted_message", handleReactedMessage);
+
     socket.on("receive_message", handleReceiveMessage);
 
     return () => {
+      socket.off("reacted_message", handleReactedMessage);
       socket.off("receive_message", handleReceiveMessage);
     };
   }, [socket]);
 
-  // @ts-ignore
+  useEffect(() => {
+    reactMessage();
+  }, [currentEmoji, selectedMessageId]);
   return (
     <div className="chat-window">
       <div className="chat-header">
@@ -76,9 +119,14 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
               index={index}
               author={messageContent.author}
               message={messageContent.message}
+              messageId={messageContent.messageId}
               time={messageContent.time}
               reactOpen={reactOpen}
               setReactOpen={setReactOpen}
+              currentEmoji={currentEmoji}
+              setCurrentEmoji={setCurrentEmoji}
+              setSelectedMessageId={setSelectedMessageId}
+              emoji={messageContent.emoji}
             ></Message>
           ))}
         </ScrollToBottom>
