@@ -1,5 +1,5 @@
 {
-  "homepage": "http://nutsamargvelashvili.github.io/chat",
+  "homepage": "https://nutsamargvelashvili.github.io/chat",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -15,8 +15,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-scripts": "5.0.1",
     "react-router-dom": "^6.16.0",
+    "react-scripts": "^5.0.1",
     "react-scroll-to-bottom": "^4.2.0",
     "react-tsparticles": "^2.10.1",
     "socket.io-client": "^4.7.1",
@@ -60,9 +60,5 @@
     "fontawesome-svg-core": {
       "license": "free"
     }
-  },
-  "publishConfig": {
-    "cache": "cache/.npm",
-    "registry": "https://mydomain/myrepo"
   }
 }
