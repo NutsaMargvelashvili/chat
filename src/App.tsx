@@ -147,15 +147,17 @@ function App() {
                           detectRetina: true,
                         }}
                       />
-                      <Home />
-                      <Signin
-                        socket={socket}
-                        setShowChat={setShowChat}
-                        setRoom={setRoom}
-                        setUsername={setUsername}
-                        room={room}
-                        username={username}
-                      ></Signin>
+                      <div className={"chat-wrapper"}>
+                        <Home />
+                        <Signin
+                          socket={socket}
+                          setShowChat={setShowChat}
+                          setRoom={setRoom}
+                          setUsername={setUsername}
+                          room={room}
+                          username={username}
+                        ></Signin>
+                      </div>
                     </>
                   ) : (
                     <>
