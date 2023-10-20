@@ -147,7 +147,7 @@ function App() {
                           detectRetina: true,
                         }}
                       />
-                      <div className={"chat-wrapper"}>
+                      <div className={"chat-container"}>
                         <Home />
                         <Signin
                           socket={socket}
