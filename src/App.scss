@@ -21,6 +21,7 @@
   background-color: var(--color-secondary);
   font-family: Cyborg, sans-serif;
   //min-height: 100dvh;
+  //min-height: 100dvh;
   //width: 100%;
 }
 
@@ -28,6 +29,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 40px 120px;
 }
 
 .main {
@@ -101,6 +104,12 @@ body {
 
 .chat-window p {
   margin: 0;
+}
+
+.chat-warning {
+  padding: 10px;
+  color: var(--color-white);
+  opacity: 33%;
 }
 
 .chat-window .chat-header {

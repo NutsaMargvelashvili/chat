@@ -113,6 +113,12 @@ const Chat: React.FC<IChat> = ({ socket, username, room }) => {
       <div className="chat-body">
         {reactOpen && <div onClick={closeReact} className="blur"></div>}
         <ScrollToBottom className="message-container">
+          {messageList.length === 0 && (
+            <p className={"chat-warning"}>
+              Note that Nutsa won't be able to see your message if she's not
+              online at the time when you send a message.
+            </p>
+          )}
           {messageList.map((messageContent, index) => (
             <Message
               username={username}
