@@ -160,10 +160,10 @@ function App() {
                       </div>
                     </>
                   ) : (
-                    <>
+                    <div className={"chat-container"}>
                       <Home />
                       <Chat socket={socket} room={room} username={username} />
-                    </>
+                    </div>
                   )}
                 </div>
               }
