@@ -10,8 +10,24 @@
   .navigation {
     .list-items {
       display: flex;
-      gap: 20px;
+      gap: 40px;
       list-style-type: none;
+
+      .list-item {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--color-white);
+        letter-spacing: 5px;
+        font-weight: bold;
+
+        &:hover {
+          color: var(--color-tertiary);
+        }
+
+        &.active {
+          color: var(--color-tertiary);
+        }
+      }
     }
   }
 }

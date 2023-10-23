@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faBug } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { faPoop } from "@fortawesome/free-solid-svg-icons";
-import { faMasksTheater } from "@fortawesome/free-solid-svg-icons";
+import { faTheaterMasks } from "@fortawesome/free-solid-svg-icons";
 import { faSmoking } from "@fortawesome/free-solid-svg-icons";
 
 interface IMessage {
@@ -130,14 +130,14 @@ const Message: React.FC<IMessage> = ({
                 chooseReact(
                   <FontAwesomeIcon
                     style={{ color: "#A260FA" }}
-                    icon={faMasksTheater}
+                    icon={faTheaterMasks}
                   />
                 )
               }
             >
               <FontAwesomeIcon
                 style={{ color: "#A260FA" }}
-                icon={faMasksTheater}
+                icon={faTheaterMasks}
               />
             </div>
           </div>
@@ -159,7 +159,7 @@ const Message: React.FC<IMessage> = ({
                 icon={emoji.props.icon}
               />
             ) : (
-              <FontAwesomeIcon style={{ opacity: 0.5 }} icon={faCirclePlus} />
+              <FontAwesomeIcon style={{ opacity: 0.5 }} icon={faPlus} />
             )}
           </div>
           {username === author && <p id="time">{time}</p>}
